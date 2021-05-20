@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>İhsan Coder | Base Apparel coming soon page | Frontend Mentor</title>
+  <link rel="stylesheet" href="./css/stilo.css">
+</head>
+
+<body>
+  <main class="container">
+    <section>
+      <div class="sec-inner">
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo">
+        </div>
+        <div class="banner-m"></div>
+        <div class="title">
+          <h1>We're</h1>
+          <h2>Coming <br> soon</h2>
+        </div>
+        <article class="text">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </article>
+        <div class="form">
+          <form id="validate">
+            <input type="email" placeholder="Email Address" id="email">
+            <button type="submit"> <img src="./images/icon-arrow.svg" alt="arr"> </button>
+          </form>
+          <div id="result"></div>
+        </div>
+
+      </div>
+    </section>
+    <aside class="banner-d"></aside>
+    <footer>
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://www.twitter.com/coderkc27" target="_blank">İhsan Coder</a>.
+      </p>
+    </footer>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    function validate() {
+      const $result = $("#result");
+      const email = $("#email").val();
+      $result.text("");
+
+      if (validateEmail(email)) {
+        $result.text(email + " is valid :)");
+        $result.css("color", "green");
+        $("#email").css("border","1px solid hsl(0, 6%, 24%)");
+
+      } else {
+        $result.text(email + " is not valid :(");
+        $result.css("color", "red");
+        $("#email").css("border","2px solid red");
+      }
+      return false;
+    }
+
+    $("#validate").on("change", validate);
+  </script>
+
+
+</body>
+
+</html>
